@@ -4,7 +4,13 @@ const routes = require('./routes');
 const cors = require('cors');
 const app = express();
 const dotenv = require('dotenv');
+const http = require('http');
+const {setupWebSocket} = require('./websocket');
+
 dotenv.config();
+
+const server = http.Server(app);
+setupWebSocket(server);
 
 mongoose.connect(process.env.DB_STRING,{
     useNewUrlParser: true,
@@ -18,4 +24,4 @@ app.use(routes);
 
 
 // Listen on 3003
-app.listen(3003);
+server.listen(3003);
