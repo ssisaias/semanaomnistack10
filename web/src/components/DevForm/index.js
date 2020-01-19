@@ -34,7 +34,7 @@ function DevForm({onSubmit}){
           });
 
         setGithubUsername('');
-        setTechs('');
+        // setTechs('');
     }
 
     return(
@@ -53,11 +53,11 @@ function DevForm({onSubmit}){
           <div className="input-group">
             <div className="input-block">
               <label htmlFor="latitude">Latidude</label>
-              <input type="number" id="latitude" required value={latitude} onChange={e=> setLatitude(e.target.value)} />
+              <input type="number" id="latitude" required value={latitude} onChange={e=> setLatitude(Number(e.target.value))} />
             </div>
             <div className="input-block">
               <label htmlFor="longitude">Longitude</label>
-              <input type="number" id="longitude" required value={longitude} onChange={e=> setLongitude(e.target.value)} />
+              <input type="number" id="longitude" required value={longitude} onChange={e=> setLongitude(Number(e.target.value))} />
             </div>
           </div>
           <button type="submit">Salvar</button>
